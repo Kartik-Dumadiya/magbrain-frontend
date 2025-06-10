@@ -81,7 +81,7 @@ const AgentsPage = () => {
         // Add similar logic for multi-prompt, conversation-flow as needed
 
         try {
-            const res = await axios.post("http://localhost:3000/agents", agentData, { withCredentials: true });
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}/agents`, agentData, { withCredentials: true });
             const bot_id = res.data.agent.bot_id;
             toast.success("Agent created!");
             window.open(`/agent/${bot_id}`, "_blank");
@@ -99,7 +99,7 @@ const AgentsPage = () => {
     const handleConfirmDelete = async () => {
         const agent = deleteModal.agent;
         try {
-            await axios.delete(`http://localhost:3000/agents/${agent.bot_id}`, { withCredentials: true });
+            await axios.delete(`${import.meta.env.VITE_API_URL}/agents/${agent.bot_id}`, { withCredentials: true });
             setAgents((prev) => prev.filter((a) => a.bot_id !== agent.bot_id));
             toast.success(`Agent "${agent.name}" deleted!`);
         } catch (err) {
@@ -114,7 +114,7 @@ const AgentsPage = () => {
     // Add this function inside your AgentsPage component (not outside)
     const handleDeleteAgent = async (agent) => {
         try {
-            await axios.delete(`http://localhost:3000/agents/${agent.bot_id}`, { withCredentials: true });
+            await axios.delete(`${import.meta.env.VITE_API_URL}/agents/${agent.bot_id}`, { withCredentials: true });
             setAgents((prev) => prev.filter((a) => a.bot_id !== agent.bot_id));
             toast.success(`Agent "${agent.name}" deleted!`);
         } catch (err) {
@@ -124,7 +124,7 @@ const AgentsPage = () => {
     };
     useEffect(() => {
             axios
-            .get("http://localhost:3000/agents", { withCredentials: true })
+            .get(`${import.meta.env.VITE_API_URL}/agents`, { withCredentials: true })
             .then((res) =>setAgents(res.data.agents))
             .finally(() => setLoading(false));
     }, []);

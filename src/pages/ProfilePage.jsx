@@ -68,7 +68,7 @@ const ProfilePage = () => {
       return;
     }
     try {
-      const res = await axios.put("http://localhost:3000/auth/me", profile, { withCredentials: true });
+      const res = await axios.put(`${import.meta.env.VITE_API_URL}/auth/me`, profile, { withCredentials: true });
       setUser(res.data.user);
       setMessage("Profile updated!");
       toast.success("Profile updated!");
@@ -92,7 +92,7 @@ const ProfilePage = () => {
       return;
     }
     try {
-      await axios.put("http://localhost:3000/auth/me/password", passwords, { withCredentials: true });
+      await axios.put(`${import.meta.env.VITE_API_URL}/auth/me/password`, passwords, { withCredentials: true });
       setPassMsg("Password updated!");
       toast.success("Password updated!");
       setPasswords({ oldPassword: "", newPassword: "" });
@@ -104,7 +104,7 @@ const ProfilePage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:3000/auth/logout", {}, { withCredentials: true });
+      await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {}, { withCredentials: true });
       toast.success("Logged out successfully!");
     } catch (err) {
       toast.error("Logout failed");

@@ -11,7 +11,7 @@ export default function AgentPageRouter() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/agents/${bot_id}`, { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_API_URL}/agents/${bot_id}`, { withCredentials: true })
       .then(res => { setAgent(res.data.agent); setLoading(false); })
       .catch(() => setLoading(false));
   }, [bot_id]);

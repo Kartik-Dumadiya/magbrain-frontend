@@ -46,7 +46,7 @@ export default function SinglePromptAgentPage() {
 
   // Fetch agent info
   useEffect(() => {
-    axios.get(`http://localhost:3000/agents/${bot_id}`, { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_API_URL}/agents/${bot_id}`, { withCredentials: true })
       .then(res => setAgent(res.data.agent))
       .catch(() => setAgent(null))
       .finally(() => setLoading(false));
@@ -61,7 +61,7 @@ export default function SinglePromptAgentPage() {
   const handleSave = async () => {
     setSaving(true);
     try {
-      await axios.put(`http://localhost:3000/agents/${bot_id}`, agent, { withCredentials: true });
+      await axios.put(`${import.meta.env.VITE_API_URL}/agents/${bot_id}`, agent, { withCredentials: true });
       setShowSaveToast(true);
       setTimeout(() => setShowSaveToast(false), 3000);
     } catch (err) {
