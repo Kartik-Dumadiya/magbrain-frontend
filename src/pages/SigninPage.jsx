@@ -62,12 +62,12 @@ const SigninPage = () => {
                   Create Account
                 </Link>
               </p>
-              <img
+              {/* <img
                 src="/login-illustration.svg"
                 alt=""
                 className="absolute bottom-2 left-1/2 -translate-x-1/2 w-40 opacity-20 pointer-events-none select-none hidden md:block"
                 draggable={false}
-              />
+              /> */}
             </div>
             <div className="w-1/2 gap-3 flex flex-col items-center justify-start p-10 animate-fade-in">
               <h2 className="text-4xl font-bold mb-4 text-gray-800 animate-fade-in-up">Sign In</h2>
