@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+.sign-in-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #6B46C1;
+  clip-path: path('M 0 0 H 100% V calc(50% - 10vw) A 10vw 10vw 0 1 0 100% calc(50% + 10vw) V 100% H 0 Z');
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a5b4fc #f1f5f9;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  transition: width 0.2s;
+  background: #f1f5f9;
+}
+.custom-scrollbar:hover::-webkit-scrollbar {
+  width: 12px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #a5b4fc;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #6366f1;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+:root {
+  --bg-white-0: #fff;
+  --bg-weak-50: #F3F4F6;
+  --stroke-strong-950: #0E121B;
+  --state-highlighted-dark: #0E121B;
+  --text-soft-400: #6B7280;
+  --text-sub-600: #6B7280;
+  --ring: #2563EB;
+  --text-error-600: #DC2626;
+  --icon-sub-600: #6B7280;
+}
